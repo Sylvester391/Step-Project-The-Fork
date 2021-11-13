@@ -1,0 +1,92 @@
+
+//button variables
+$btn-padding: .5rem 1rem;
+$btn-margin: .5em;
+$btn-border-radius: 0;
+$btn-font: sans-serif;
+$btn-font-size: 16px;
+$btn-font-color:#000;
+
+$btn-types: "small" "large" "github";
+
+@mixin btn-reset() {
+    display: inline;
+    padding: $btn-padding;
+    margin: $btn-margin;
+    border: none;
+    border-radius: $btn-border-radius;
+    background-color: transparent;
+    text-align: center;
+    text-decoration: none;
+    font-family: $btn-font;
+    font-size: $btn-font-size;
+    color: $btn-font-color;
+    cursor: pointer;
+}
+
+@mixin btn($type: 'default') {
+    @include btn-reset;
+    @if $type == 'small' {
+        height: 37px;
+        width: 119px;
+        border-radius: 20px;
+        background-color: $color-purple--light;
+        color: $white;
+        font-size: 15px;
+        &:hover{
+            background-color: $white;
+            color: $color-purple--light;
+            border: 1px solid $color-purple--light;
+        }
+    }
+    @else if $type == 'large'{
+        height: 45px;
+        width: 290px;
+        border-radius: 20px;
+        background-color: $color-purple--light;
+        padding: 0;
+        color: $white;
+        font-family: $font-Montserrat;
+        font-weight: bold;
+        font-size: 14px;
+        &:hover{
+            background-color: $white;
+            color: $color-purple--light;
+            border: 1px solid $color-purple--light;
+        }
+    }
+    @else if $type == 'github'{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 26px;
+        width: 117px;
+        border-radius: 3px;
+        border: 2px solid #D5D5D5;
+        background-color: #F2F2F2;
+        padding: 0;
+        color: #333333;
+    }
+
+}
+.btn{
+    @include btn-reset;
+}
+.btn--small{
+    @include btn('small');
+}
+.btn--large{
+    @include btn('large');
+}
+.btn--github{
+    @include btn('github');
+}
+
+// .btn {
+//     background-color: $color-purple--light;
+//     color: white;
+//     box-shadow: 0px 0px 0px transparent;
+//     border: 0px solid transparent;
+//     text-shadow: 0px 0px 0px transparent;
+
+// }
